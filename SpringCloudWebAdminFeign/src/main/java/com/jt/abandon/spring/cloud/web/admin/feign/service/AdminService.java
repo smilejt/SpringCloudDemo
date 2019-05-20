@@ -8,6 +8,7 @@ package com.jt.abandon.spring.cloud.web.admin.feign.service;
 
 import com.jt.abandon.spring.cloud.web.admin.feign.service.hystrix.AdminServiceHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author: LY
  * @Description: 实际处理调用接口
  */
+@Service
 @FeignClient(value = "SpringCloudServiceAdmin",fallback = AdminServiceHystrix.class)
 public interface AdminService {
 
