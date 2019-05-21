@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: SpringCloudAuthServer
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8770
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

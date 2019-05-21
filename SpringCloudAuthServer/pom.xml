@@ -10,10 +10,10 @@
         <relativePath>../SpringCloudDependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>SpringCloudServiceAdmin</artifactId>
+    <artifactId>SpringCloudAuthServer</artifactId>
     <packaging>jar</packaging>
 
-    <name>hSpringCloudServiceAdmin</name>
+    <name>SpringCloudAuthServer</name>
     <url>http://www.abandon-jt.com</url>
     <inceptionYear>2019-Now</inceptionYear>
 
