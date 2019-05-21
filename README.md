@@ -17,10 +17,11 @@
 	→ SpringCloudWebAdminFeign、SpringCloudWebAdminRibbon → SpringCloudZuul
 #### 端口占用
 1.Eureka:8761  
-2.服务提供Demo:8763  
-3.Ribbon:8764(使用Feign代替)  
-4.Feign+Hystrix:8765  
-5.Zuul:8769  
-6.ZipKin:9411  
-7.Admin:8084  
+2.Config:8888  
+3.服务提供Demo:8763  
+4.Ribbon:8764(使用Feign代替)  
+5.Feign+Hystrix:8765  
+6.Zuul:8769  
+7.ZipKin:9411  
+8.Admin:8084  
 
