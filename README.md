@@ -15,3 +15,11 @@
 #### 项目启动顺序
 	SpringCloudEureka → SpringCloudConfig → SpringCloudAdminServer、SpringCloudZipkin → SpringCloudServiceAdmin
 	→ SpringCloudWebAdminFeign、SpringCloudWebAdminRibbon → SpringCloudZuul
+#### 端口占用
+1.Eureka:8761
+2.服务提供Demo:8763
+3.Ribbon:8764(使用Feign代替)
+4.Feign+Hystrix:8765
+5.Zuul:8769
+6.ZipKin:9411
+7.Admin:8084
