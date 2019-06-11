@@ -71,13 +71,14 @@ public class LoginFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
-        logger.info("{} >>> {}", request.getMethod(), request.getRequestURL().toString());
+        logger.info("请求地址:{} >>> {}", request.getMethod(), request.getRequestURL().toString());
         //模拟拦截未登录请求
         String token = request.getParameter("token");
         if (token == null) {
             logger.warn("Token is empty");
             context.setSendZuulResponse(false);
             context.setResponseStatusCode(401);
+
             try {
                 HttpServletResponse response = context.getResponse();
                 response.setContentType("text/html;charset=utf-8");

@@ -2,14 +2,14 @@ spring:
   application:
     name: SpringCloudEureka
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://abandon-jt.com:9411
 
 server:
   port: 8761
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: abandon-jt.com
   client:
     registerWithEureka: false
     fetchRegistry: false
