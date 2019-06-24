@@ -7,6 +7,11 @@ spring:
         url: http://localhost:8084
   zipkin:
     base-url: http://localhost:9411
+  datasource:
+    url: jdbc:mysql://rm-wz9jezta3ntmwg02dso.mysql.rds.aliyuncs.com:3306/demo_user?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: 2018newlife!
+    driver-class-name: com.mysql.jdbc.Driver
 
 server:
   port: 8770
@@ -15,3 +20,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
