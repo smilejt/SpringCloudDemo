@@ -7,6 +7,8 @@ import com.jt.abandon.spring.cloud.auth.server.utils.CookieUtils;
 import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeResult;
 import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeUtils;
 import com.jt.abandon.spring.cloud.auth.server.utils.JsonUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -26,6 +28,9 @@ import java.util.UUID;
 @Service
 @PropertySource(value = "classpath:redis.properties")
 public class UserService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserInfoMapper userInfoMapper;
 
@@ -40,9 +45,11 @@ public class UserService {
 
     public CustomizeResult userLogin(String account, String password,
                                      HttpServletRequest request, HttpServletResponse response) {
+        logger.info("[UserService].[userLogin]验证账号密码开始");
         // 判断账号密码是否正确
         UserInfo user = userInfoMapper.findByAccount(account);
         if (null == user || !CustomizeUtils.decryptPassword(user, password)) {
+            logger.info("[UserService].[userLogin]账号或密码错误");
             return CustomizeResult.build(400, "账号名或密码错误");
         }
         // 生成token
@@ -61,6 +68,8 @@ public class UserService {
         jedisClient.expire(REDIS_USER_SESSION_KEY + ":" + token, SSO_SESSION_EXPIRE);
         // 添加写 cookie 的逻辑，cookie 的有效期是关闭浏览器就失效。
         CookieUtils.setCookie(request, response, "USER_TOKEN", token);
+
+        logger.info("[UserService].[userLogin]登录成功account:", account);
         // 返回token
         return CustomizeResult.ok(token);
     }
@@ -74,6 +83,7 @@ public class UserService {
         String json = jedisClient.get(REDIS_USER_SESSION_KEY + ":" + token);
         // 判断是否为空
         if (StringUtils.isEmpty(json)) {
+            logger.info("[UserService].[queryUserByToken]session已过期{}", token);
             return CustomizeResult.build(400, "此session已经过期，请重新登录");
         }
         // 更新过期时间
