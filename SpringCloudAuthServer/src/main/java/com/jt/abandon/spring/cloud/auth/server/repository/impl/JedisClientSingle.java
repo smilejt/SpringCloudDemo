@@ -1,6 +1,6 @@
-package com.jt.abandon.spring.cloud.auth.repository.impl;
+package com.jt.abandon.spring.cloud.auth.server.repository.impl;
 
-import com.jt.abandon.spring.cloud.auth.repository.JedisClient;
+import com.jt.abandon.spring.cloud.auth.server.repository.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;

@@ -1,4 +1,4 @@
-package com.jt.abandon.spring.cloud.auth.config;
+package com.jt.abandon.spring.cloud.auth.server.config;
 
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;

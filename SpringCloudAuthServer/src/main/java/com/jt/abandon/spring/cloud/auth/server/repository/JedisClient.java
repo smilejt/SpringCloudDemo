@@ -1,4 +1,4 @@
-package com.jt.abandon.spring.cloud.auth.repository;
+package com.jt.abandon.spring.cloud.auth.server.repository;
 
 /**
  * @createData: 2019-06-24 17:17

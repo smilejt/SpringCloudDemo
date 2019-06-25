@@ -1,4 +1,4 @@
-package com.jt.abandon.spring.cloud.auth.entity;
+package com.jt.abandon.spring.cloud.auth.server.entity;
 
 /**
  * @createData: 2019-06-24 17:04
@@ -17,6 +17,7 @@ public class UserInfo {
     private String platform;                // 用户来自的平台
     private String createdDate;                // 用户注册时间
     private String updatedDate;                // 用户最后一次登录时间
+    private String version;
 
     public Long getId() {
         return id;
@@ -106,6 +107,14 @@ public class UserInfo {
         this.updatedDate = updatedDate;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -120,6 +129,7 @@ public class UserInfo {
                 ", platform='" + platform + '\'' +
                 ", createdDate='" + createdDate + '\'' +
                 ", updatedDate='" + updatedDate + '\'' +
+                ", version='" + version + '\'' +
                 '}';
     }
 }

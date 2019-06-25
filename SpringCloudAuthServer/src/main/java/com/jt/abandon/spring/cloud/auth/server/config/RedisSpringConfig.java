@@ -1,4 +1,4 @@
-package com.jt.abandon.spring.cloud.auth.config;
+package com.jt.abandon.spring.cloud.auth.server.config;
 
 import java.util.ArrayList;
 import java.util.List;

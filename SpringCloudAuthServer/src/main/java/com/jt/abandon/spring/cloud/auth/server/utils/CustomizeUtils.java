@@ -1,6 +1,6 @@
-package com.jt.abandon.spring.cloud.auth.utils;
+package com.jt.abandon.spring.cloud.auth.server.utils;
 
-import com.jt.abandon.spring.cloud.auth.entity.UserInfo;
+import com.jt.abandon.spring.cloud.auth.server.entity.UserInfo;
 import org.springframework.util.DigestUtils;
 
 import java.text.SimpleDateFormat;

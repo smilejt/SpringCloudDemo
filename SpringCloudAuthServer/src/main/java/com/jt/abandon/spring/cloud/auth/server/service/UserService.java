@@ -1,12 +1,12 @@
 package com.jt.abandon.spring.cloud.auth.server.service;
 
-import com.jt.abandon.spring.cloud.auth.dao.UserInfoDao;
-import com.jt.abandon.spring.cloud.auth.entity.UserInfo;
-import com.jt.abandon.spring.cloud.auth.repository.JedisClient;
-import com.jt.abandon.spring.cloud.auth.utils.CookieUtils;
-import com.jt.abandon.spring.cloud.auth.utils.CustomizeResult;
-import com.jt.abandon.spring.cloud.auth.utils.CustomizeUtils;
-import io.micrometer.core.instrument.util.JsonUtils;
+import com.jt.abandon.spring.cloud.auth.server.mapper.UserInfoMapper;
+import com.jt.abandon.spring.cloud.auth.server.entity.UserInfo;
+import com.jt.abandon.spring.cloud.auth.server.repository.JedisClient;
+import com.jt.abandon.spring.cloud.auth.server.utils.CookieUtils;
+import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeResult;
+import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeUtils;
+import com.jt.abandon.spring.cloud.auth.server.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -27,7 +27,7 @@ import java.util.UUID;
 @PropertySource(value = "classpath:redis.properties")
 public class UserService {
     @Autowired
-    private UserInfoDao userInfoDao;
+    private UserInfoMapper userInfoMapper;
 
     @Resource
     private JedisClient jedisClient;
@@ -41,8 +41,8 @@ public class UserService {
     public CustomizeResult userLogin(String account, String password,
                                      HttpServletRequest request, HttpServletResponse response) {
         // 判断账号密码是否正确
-        UserInfo user = userRepository.findByAccount(account);
-        if (!CustomizeUtils.decryptPassword(user, password)) {
+        UserInfo user = userInfoMapper.findByAccount(account);
+        if (null == user || !CustomizeUtils.decryptPassword(user, password)) {
             return CustomizeResult.build(400, "账号名或密码错误");
         }
         // 生成token
@@ -79,6 +79,6 @@ public class UserService {
         // 更新过期时间
         jedisClient.expire(REDIS_USER_SESSION_KEY + ":" + token, SSO_SESSION_EXPIRE);
         // 返回用户信息
-        return CustomizeResult.ok(JsonUtils.jsonToPojo(json, User.class));
+        return CustomizeResult.ok(JsonUtils.jsonToPojo(json, UserInfo.class));
     }
 }

@@ -1,7 +1,8 @@
 package com.jt.abandon.spring.cloud.auth.server.controller;
 
 import com.jt.abandon.spring.cloud.auth.server.service.UserService;
-import com.jt.abandon.spring.cloud.auth.utils.CustomizeResult;
+import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeResult;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +26,12 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public CustomizeResult userLogin(String username, String password,
+    public CustomizeResult userLogin(@Param("username") String username, @Param("password") String password,
                                      HttpServletRequest request, HttpServletResponse response) {
         try {
+            if (null == username || "".equals(username) || null == password || "".equals(password)){
+                return CustomizeResult.build(400, "用户名或密码不能为空!");
+            }
             CustomizeResult result = userService.userLogin(username, password, request, response);
             return result;
         } catch (Exception e) {
@@ -37,9 +41,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/logout/{token}")
-    public String logout(@PathVariable String token) {
+    @ResponseBody
+    public CustomizeResult logout(@PathVariable String token) {
         userService.logout(token); // 思路是从Redis中删除key，实际情况请和业务逻辑结合
-        return "index";
+        return CustomizeResult.build(200, "退出登录成功");
     }
 
     @RequestMapping("/token/{token}")

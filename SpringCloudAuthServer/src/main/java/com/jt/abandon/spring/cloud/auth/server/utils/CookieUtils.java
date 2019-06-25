@@ -1,4 +1,4 @@
-package com.jt.abandon.spring.cloud.auth.utils;
+package com.jt.abandon.spring.cloud.auth.server.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
