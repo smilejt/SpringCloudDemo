@@ -3,10 +3,10 @@ package com.jt.abandon.spring.cloud.auth.server.service;
 import com.jt.abandon.spring.cloud.auth.server.mapper.UserInfoMapper;
 import com.jt.abandon.spring.cloud.auth.server.entity.UserInfo;
 import com.jt.abandon.spring.cloud.auth.server.repository.JedisClient;
-import com.jt.abandon.spring.cloud.auth.server.utils.CookieUtils;
-import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeResult;
 import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeUtils;
-import com.jt.abandon.spring.cloud.auth.server.utils.JsonUtils;
+import com.jt.abandon.spring.cloud.common.utils.CookieUtils;
+import com.jt.abandon.spring.cloud.common.utils.CustomizeResult;
+import com.jt.abandon.spring.cloud.common.utils.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +69,7 @@ public class UserService {
         // 添加写 cookie 的逻辑，cookie 的有效期是关闭浏览器就失效。
         CookieUtils.setCookie(request, response, "USER_TOKEN", token);
 
-        logger.info("[UserService].[userLogin]登录成功account:", account);
+        logger.info("[UserService].[userLogin]登录成功account:{}", user.getAccount());
         // 返回token
         return CustomizeResult.ok(token);
     }

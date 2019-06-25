@@ -1,12 +1,11 @@
-package com.jt.abandon.spring.cloud.auth.server.utils;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
+package com.jt.abandon.spring.cloud.common.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 /**
  * @createData: 2019-06-24 17:07
@@ -186,7 +185,6 @@ public final class CookieUtils {
     private static void requestIsNotBull(HttpServletRequest request, Cookie cookie) {
         if (null != request) {    // 设置域名的cookie
             String domainName = getDomainName(request);
-            System.out.println("domainName : " + domainName);
             if (!"localhost".equals(domainName)) {
                 cookie.setDomain(domainName);
             }

@@ -1,9 +1,10 @@
-package com.jt.abandon.spring.cloud.auth.server.utils;
+package com.jt.abandon.spring.cloud.common.utils;
 
-import java.util.List;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
 
 /**
  * @createData: 2019-06-25 09:49

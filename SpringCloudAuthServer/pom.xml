@@ -77,6 +77,12 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
+
+        <!--工具包-->
+        <dependency>
+            <groupId>com.abandon-jt</groupId>
+            <artifactId>SpringCloudCommonUtils</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

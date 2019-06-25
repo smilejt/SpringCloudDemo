@@ -1,4 +1,4 @@
-package com.jt.abandon.spring.cloud.auth.server.utils;
+package com.jt.abandon.spring.cloud.common.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

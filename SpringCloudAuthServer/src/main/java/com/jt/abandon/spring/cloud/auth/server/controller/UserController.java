@@ -1,7 +1,7 @@
 package com.jt.abandon.spring.cloud.auth.server.controller;
 
 import com.jt.abandon.spring.cloud.auth.server.service.UserService;
-import com.jt.abandon.spring.cloud.auth.server.utils.CustomizeResult;
+import com.jt.abandon.spring.cloud.common.utils.CustomizeResult;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
