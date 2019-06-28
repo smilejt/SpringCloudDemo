@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description:
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/api")
 public class LoginController {
     @RequestMapping("/login")
     public String showLogin(String redirect, Model model) {

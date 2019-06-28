@@ -1,7 +1,24 @@
 spring:
-  cloud:
-    config:
-      uri: http://localhost:8888
-      name: admin-server
-      label: master
-      profile: dev
+  application:
+    name: SpringCloudAdminServer
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8084
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+eureka:
+#  instance:
+#    hostname: abandon-jt.com
+  client:
+    serviceUrl:
+      defaultZone: http://abandon-jt.com:8761/eureka/

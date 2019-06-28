@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://abandon-jt.com:8888
       name: zipkin
       label: master
       profile: dev
