@@ -3,6 +3,7 @@ package com.jt.abandon.spring.cloud.common.utils;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,8 +11,9 @@ import java.util.List;
  * @author: LongJunTao
  * @Description:
  */
-public class CustomizeResult {
+public class CustomizeResult implements Serializable {
     private static final ObjectMapper MAPPER = new ObjectMapper();	// 定义jackson对象
+    private static final long serialVersionUID = 6499807021160313356L;
 
     private Integer status;	// 响应业务状态
 

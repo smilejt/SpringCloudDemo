@@ -73,7 +73,8 @@ public class LoginFilter extends ZuulFilter {
         HttpServletRequest request = context.getRequest();
         logger.info("{} >>> {}", request.getMethod(), request.getRequestURL().toString());
         //模拟拦截未登录请求
-        String token = request.getParameter("token");
+//        String token = request.getParameter("token");
+        String token = request.getHeader("token");
         if (token == null) {
             logger.warn("Token is empty");
             context.setSendZuulResponse(false);
@@ -83,6 +84,7 @@ public class LoginFilter extends ZuulFilter {
                 response.setContentType("text/html;charset=utf-8");
                 context.getResponse().getWriter().write("非法请求");
             } catch (IOException e) {
+                logger.error("[LoginFilter].[run]系统异常:{}",e.getMessage());
             }
         } else {
             logger.info("OK");

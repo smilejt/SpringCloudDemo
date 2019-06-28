@@ -9,12 +9,14 @@ package com.jt.abandon.spring.cloud.auth.server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @createDate: 2019/5/21 21:36
  * @author: LY
  * @Description: SSO单点登录
  */
+@EnableSwagger2
 @SpringBootApplication
 @EnableEurekaClient
 public class AuthServerApplication {
