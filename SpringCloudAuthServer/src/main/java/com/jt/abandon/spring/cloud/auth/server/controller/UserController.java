@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Description:
  */
 @Controller
-@RequestMapping("/api/user")
+@RequestMapping("/demo/auth")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);

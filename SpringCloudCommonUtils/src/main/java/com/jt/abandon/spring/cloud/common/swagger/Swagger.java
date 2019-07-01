@@ -28,7 +28,7 @@ public class Swagger {
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/api/**"))
+                .paths(PathSelectors.ant("**/demo/**"))
                 .build();
     }
 

@@ -16,12 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class AuthServiceHystrix implements AuthService {
     @Override
-    public String showLogin(String redirect, Model model) {
+    public String showLogin() {
         return "[AuthService].[showLogin]返回异常!";
     }
 
     @Override
-    public CustomizeResult userLogin(String username, String password, HttpServletRequest request, HttpServletResponse response) {
+    public CustomizeResult userLogin(String username, String password) {
         return new CustomizeResult(500, "[AuthService].[userLogin]系统异常", null);
     }
 

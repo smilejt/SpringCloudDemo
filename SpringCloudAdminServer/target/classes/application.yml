@@ -1,3 +1,12 @@
+#spring:
+##  cloud:
+##    config:
+##      uri: http://abandon-jt.com:8888
+##      name: admin-server
+##      label: master
+##      profile: dev
+
+
 spring:
   application:
     name: SpringCloudAdminServer
@@ -17,8 +26,6 @@ management:
         include: health,info
 
 eureka:
-#  instance:
-#    hostname: abandon-jt.com
   client:
     serviceUrl:
       defaultZone: http://abandon-jt.com:8761/eureka/

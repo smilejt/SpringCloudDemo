@@ -1,9 +1,33 @@
+#spring:
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
+#      name: zipkin
+#      label: master
+#      profile: dev
+#  main:
+#    allow-bean-definition-overriding: true
+
 spring:
-  cloud:
-    config:
-      uri: http://abandon-jt.com:8888
-      name: zipkin
-      label: master
-      profile: dev
+  application:
+    name: SpringCloudZipkin
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
   main:
     allow-bean-definition-overriding: true
+
+server:
+  port: 9411
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://abandon-jt.com:8761/eureka/
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

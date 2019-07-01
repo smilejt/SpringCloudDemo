@@ -6,6 +6,7 @@ import feign.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,25 +22,22 @@ public class AuthController {
     @Autowired
     AuthService authService;
 
-    @RequestMapping(value = "/api/login")
-    String showLogin(String redirect, Model model) {
-        return authService.showLogin(redirect, model);
+    @RequestMapping(value = "/demo/login")
+    String showLogin() {
+        return authService.showLogin();
     }
 
-    @RequestMapping(value = "/api/user/login", method = RequestMethod.POST)
-    @ResponseBody
-    CustomizeResult userLogin(@Param("username") String username, @Param("password") String password, HttpServletRequest request, HttpServletResponse response){
-        return authService.userLogin(username,password,request,response);
+    @RequestMapping(value = "/demo/auth/login", method = RequestMethod.POST)
+    CustomizeResult userLogin(@RequestParam("username") String username, @RequestParam("password") String password){
+        return authService.userLogin(username,password);
     }
 
-    @RequestMapping(value = "/api/user/logout/{token}")
-    @ResponseBody
+    @RequestMapping(value = "/demo/auth/logout/{token}")
     CustomizeResult logout(@PathVariable String token){
         return authService.logout(token);
     }
 
-    @RequestMapping("/api/user/token/{token}")
-    @ResponseBody
+    @RequestMapping("/demo/auth/token/{token}")
     Object getUserByToken(@PathVariable String token){
         return authService.getUserByToken(token);
     }

@@ -33,10 +33,10 @@
         </dependency>
 
         <!--SpringCloud云配置插件-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-config</artifactId>-->
+        <!--</dependency>-->
         <!-- Spring Cloud End -->
 
         <!--服务链路追踪插件-->
@@ -55,11 +55,11 @@
         </dependency>
 
         <!--SSO单点登录-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
-            <version>1.2.2.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-oauth2</artifactId>-->
+            <!--<version>1.2.2.RELEASE</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>

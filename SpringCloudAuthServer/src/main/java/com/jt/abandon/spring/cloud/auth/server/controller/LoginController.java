@@ -1,7 +1,6 @@
 package com.jt.abandon.spring.cloud.auth.server.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,11 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description:
  */
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/demo")
 public class LoginController {
     @RequestMapping("/login")
-    public String showLogin(String redirect, Model model) {
-        model.addAttribute("redirect", redirect);
+    public String showLogin() {
         return "login";
     }
 }
