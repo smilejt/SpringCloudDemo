@@ -29,6 +29,9 @@ server:
   port: 8765
 
 eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
   client:
     serviceUrl:
       defaultZone: http://abandon-jt.com:8761/eureka/
