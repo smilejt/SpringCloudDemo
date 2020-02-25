@@ -8,18 +8,29 @@ spring:
   zipkin:
     base-url: http://localhost:9411
   datasource:
-    url: jdbc:mysql://rm-wz9jezta3ntmwg02dso.mysql.rds.aliyuncs.com:3306/demo_user?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
-    username: root
-    password: 2018NewLife!
-    driver-class-name: com.mysql.jdbc.Driver
-
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/auth?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+      username: root
+      password: 2020NewLife!
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
   port: 8770
 
+mybatis:
+  type-aliases-package: com.funtl.oauth2.server.domain
+  mapper-locations: classpath:mapper/*.xml
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://abandon-jt.com:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/

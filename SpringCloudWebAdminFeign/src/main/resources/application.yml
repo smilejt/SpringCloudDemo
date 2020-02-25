@@ -34,7 +34,7 @@ eureka:
     ip-address: 127.0.0.1
   client:
     serviceUrl:
-      defaultZone: http://abandon-jt.com:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 feign:
   hystrix:

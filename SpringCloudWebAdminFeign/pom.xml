@@ -86,10 +86,10 @@
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.abandon-jt</groupId>
-            <artifactId>SpringCloudCommonUtils</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.abandon-jt</groupId>-->
+<!--            <artifactId>SpringCloudCommonUtils</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

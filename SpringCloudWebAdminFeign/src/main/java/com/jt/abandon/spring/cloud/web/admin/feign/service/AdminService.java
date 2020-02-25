@@ -22,6 +22,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "SpringCloudServiceAdmin",fallback = AdminServiceHystrix.class)
 public interface AdminService {
 
+    /**
+     * 测试方法
+     * @param message
+     * @return
+     */
     @RequestMapping(value = "hi",method = RequestMethod.GET)
     String sayHi(@RequestParam(value = "message")String message);
 }

@@ -6,6 +6,8 @@
  */
 package com.jt.abandon.spring.cloud.eureka;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
@@ -15,11 +17,14 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @author: LY
  * @Description: EurekaServer启动类
  */
-@SpringBootApplication//SpringBoot启动注解
-@EnableEurekaServer//启动服务注册中心注解
+@SpringBootApplication
+@EnableEurekaServer
 public class EurekaApplication {
+
+    private static final Logger logger = LoggerFactory.getLogger(EurekaApplication.class);
+
     public static void main(String[] args) {
         SpringApplication.run(EurekaApplication.class, args);
-        System.out.println("---------------------Eureka服务注册于发现启动成功---------------------");
+        logger.info("---------------------Eureka服务注册于发现启动成功---------------------");
     }
 }

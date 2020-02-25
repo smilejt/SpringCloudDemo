@@ -6,23 +6,27 @@
  */
 package com.jt.abandon.spring.cloud.auth.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @createDate: 2019/5/21 21:36
  * @author: LY
  * @Description: SSO单点登录
  */
-@EnableSwagger2
 @SpringBootApplication
 @EnableEurekaClient
+@MapperScan(basePackages = "com.jt.abandon.spring.cloud.auth.server.mapper")
 public class AuthServerApplication {
+
+    private static Logger logger = LoggerFactory.getLogger(AuthServerApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(AuthServerApplication.class, args);
-        System.out.println("---------------------SSO单点登录启动成功---------------------");
+        logger.info("---------------------Auth权限认证启动成功---------------------");
     }
 }

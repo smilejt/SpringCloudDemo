@@ -19,8 +19,8 @@ public class AdminServiceHystrix implements AdminService {
 
     /**
      * 熔断处理方法
-     * @param message
-     * @return
+     * @param message 入参
+     * @return 返回
      */
     @Override
     public String sayHi(String message) {

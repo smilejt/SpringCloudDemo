@@ -117,17 +117,41 @@
             </dependency>
 
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+                <version>2.2.0.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>3.4.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>2.1.5</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.4</version>
+                <version>1.18.12</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.62</version>
             </dependency>
 
             <!--工具包-->
-            <dependency>
-                <groupId>com.abandon-jt</groupId>
-                <artifactId>SpringCloudCommonUtils</artifactId>
-                <version>0.0.1</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.abandon-jt</groupId>-->
+<!--                <artifactId>SpringCloudCommonUtils</artifactId>-->
+<!--                <version>0.0.1</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

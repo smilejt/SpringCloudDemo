@@ -6,6 +6,8 @@
  */
 package com.jt.abandon.spring.cloud.service.admin;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -18,8 +20,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication//SpringBoot启动注解
 @EnableEurekaClient//注册Eureka服务注解
 public class ServiceAdminApplication {
+
+    private static final Logger logger = LoggerFactory.getLogger(ServiceAdminApplication.class);
+
     public static void main(String[] args) {
         SpringApplication.run(ServiceAdminApplication.class, args);
-        System.out.println("---------------------EurekaClient服务客户端启动成功---------------------");
+        logger.info("---------------------ServiceAdmin服务提供端启动成功---------------------");
     }
 }

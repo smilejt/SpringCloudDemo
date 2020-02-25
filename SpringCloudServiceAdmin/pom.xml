@@ -13,7 +13,7 @@
     <artifactId>SpringCloudServiceAdmin</artifactId>
     <packaging>jar</packaging>
 
-    <name>hSpringCloudServiceAdmin</name>
+    <name>SpringCloudServiceAdmin</name>
     <url>http://www.abandon-jt.com</url>
     <inceptionYear>2019-Now</inceptionYear>
 
